@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나는 무슨 계절 성향일까?</title>
+    <meta name="description" content="나는 무슨계절 성향일까?">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="계절성향테스트">
+    <meta property="og:description" content="나는 무슨계절 성향일까 계절테스트">
+    <meta property="og:image" content="https://eventeffect.netlify.app/testlogo.png">
+    <meta property="og:url" content="https://eventeffect.netlify.app">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container">
+    <article class="start">
+        <h1 class="main-title mt-5 text-center">계절성향테스트</h1>
+		<h2 class="sub-title mt-3 text-center"><strong>나는 무슨 계절 성향일까?</strong></h2>
+        <img class="updown-slash mt-5" src="img/testlogo.png" alt="up-slash">
+        <div class="start-cover mt-3 mb-3">
+            <button type="button" class="btn-start btn btn-primary" onclick='start();'>시작하기</button>              
+
+        
+        </div>
+    </article>
+    <article class="question">
+        <div class="progress mt-5">
+            <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
+        </div>
+
+        <h2 id="title" class="question-content text-center mt-4 mb-4">문제</h2>
+        <input id="type" type="hidden" value="EI">
+        <div class="rectangle mt-5"></div>
+        <button id="A" type="button" class="btn-answer btn btn-primary pt-4 pb-4">대답A</button>
+       &nbsp;
+        <button id="B" type="button" class="btn-answer btn btn-primary pt-4 pb-4">대답B</button>
+        <div class="rectangle"></div>
+    </article>
+    <article class="result">
+        <span class="result-message mt-4 mb-4"><strong>당신은...</strong></span>
+        <img id="img" class="rounded-circle mt-5" src="img/testlogo.png" alt="animal">
+        <h2 id="animal" class="result-animal text-center mt-4 mb-4">계절이름</h2>
+        <h3 id="explain" class="result-explain text-center mt-4">설명</h3>
+        <div class="rectangle mt-4 mb-4"></div>
+        <span class="share-message mb-4">친구들에게 <strong>공유하기</strong></span>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="share addthis_inline_share_toolbox"></div>
+    </article>
+    <article class="logo">
+        <img class="mt-5 eventeffect_logo" src="img/eventeffect_logo2.png" alt="eventevent-logo">
+        <span class="mt-2 text-center copyright-text">Copyright 2021 EVENT EFFECT all rights reserved</span>
+    </article>
+    <article class="kakao_ad mt-5">
+		<ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-bjDp7TXSO4qQ6uLG" 
+ data-ad-width   = "320" 
+ data-ad-height  = "100"></ins> 
+    </article>
+    <a class="mt-5 banner" href="https://aseongon.com">
+        <img class="banner-img" src="img/adbanner.png" alt="banner">
+    </a>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <input type="hidden" id="EI" value="0">
+    <input type="hidden" id="SN" value="0">
+    <input type="hidden" id="TF" value="0">
+    <input type="hidden" id="JP" value="0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script>
+        var num = 1;
+			var q = {
+			1: {"title": "당신이 휴가를 간다면?", "type": "EI", "A": "바다🌊", "B": "놀이공원🎡"},
+			2: {"title": "클래식 음악에 대해 당신의 생각은?", "type": "SN", "A": "듣기 좋다☺️", "B": "나에게 맞지 않는 음악이다😶"},
+			3: {"title": "생일이다!", "type": "TF", "A": "아무일도 일어나지 않을것 같다🤣", "B": "파티다!🤪"},
+			4: {"title": "SNS를 어떻게 생각하시나요?", "type": "JP", "A": "시간낭비", "B": "유용해"},
+			5: {"title": "스마트폰이 1시간동안 만지지않으면?", "type": "EI", "A": "1시간은 참는다", "B": "불안하다"},
+			6: {"title": "사탕 먹을때", "type": "SN", "A": "사서 먹는다", "B": "있으면 먹는다"},
+			7: {"title": "무언가 시도하고 도전해서 인생을 만들어가는것이 의미있다고 생각한다", "type": "TF", "A": "내가 인생을 만들어가서 도전하고싶어", "B": "그냥 흘러가는대로 위험없이 사는게 좋아"},
+			8: {"title": "생각보다 행동이 앞서는편인가?", "type": "JP", "A": "나는 뭐든지 행동하고 생각한다", "B": "나는 생각하고 행동한다"},
+			9: {"title": "1년동안 독서를 한적이 있는가?", "type": "EI", "A": "독서를 한적이 있다", "B": "독서를 한적이 없다"},
+			10: {"title": "아침에 혼자서는 일어날 수 있다", "type": "SN", "A": "아침에 혼자서는 힘들다😢", "B": "아침에 혼자서 일어난다🙂"},
+			11: {"title": "갑자기 욱할때", "type": "TF", "A": "컨트롤 할 수 있다🧘🏻", "B": "내면에 있는 화를 전부 꺼낸다😠"},
+			12: {"title": "분위기를 신경쓰는 편인가?", "type": "JP", "A": "나는 그런거 신경쓰지 않는다. MY WAY😎", "B": "분위기에 맞춰준다😉"}
+			}
+			var result = {
+"ISTJ": {"animal":"<strong>봄</strong>", "explain": "당신은 생동감이 넘치는 이미지, 동안의 이미지를 가지고 있네요🌸", "img": "spring.png"},
+"ISFJ": {"animal": "<strong>봄</strong>", "explain": "당신은 생동감이 넘치는 이미지, 동안의 이미지를 가지고 있네요🌸", "img": "spring.png"},
+"INFJ": {"animal": "<strong>봄</strong>", "explain": "당신은 생동감이 넘치는 이미지, 동안의 이미지를 가지고 있네요🌸", "img": "spring.png"},
+"INTJ": {"animal": "<strong>봄</strong>", "explain": "당신은 생동감이 넘치는 이미지, 동안의 이미지를 가지고 있네요🌸", "img": "spring.png"},
+"ISTP": {"animal": "<strong>여름</strong>", "explain": "당신은 세련된 이미지와 청량한 분위기를 가지고 있네요🌊", "img": "summer.png"},
+"ISFP": {"animal": "<strong>여름</strong>", "explain": "당신은 세련된 이미지와 청량한 분위기를 가지고 있네요🌊", "img": "summer.png"},
+"INFP": {"animal": "<strong>여름</strong>", "explain": "당신은 세련된 이미지와 청량한 분위기를 가지고 있네요🌊", "img": "summer.png"},
+"INTP": {"animal": "<strong>여름</strong>", "explain": "당신은 세련된 이미지와 청량한 분위기를 가지고 있네요🌊", "img": "summer.png"},
+"ESTP": {"animal": "<strong>가을</strong>", "explain": "당신은 어른스럽고 차분한 이미지를 가지고 있네요🍁", "img": "autumn.png"},
+"ESFP": {"animal": "<strong>가을</strong>", "explain": "당신은 어른스럽고 차분한 이미지를 가지고 있네요🍁", "img": "autumn.png"},
+"ENFP": {"animal": "<strong>가을</strong>", "explain": "당신은 어른스럽고 차분한 이미지를 가지고 있네요🍁", "img": "autumn.png"},
+"ENTP": {"animal": "<strong>가을</strong>", "explain": "당신은 어른스럽고 차분한 이미지를 가지고 있네요🍁", "img": "autumn.png"},
+"ESTJ": {"animal": "<strong>겨울</strong>", "explain": "당신은 어느공간에서 확 튀는 이미지와 차가운 도시이미지를 가지고 있네요❄️", "img": "winter.png"},
+"ESFJ": {"animal": "<strong>겨울</strong>", "explain": "당신은 어느공간에서 확 튀는 이미지와 차가운 도시이미지를 가지고 있네요❄️", "img": "winter.png"},
+"ENFJ": {"animal": "<strong>겨울</strong>", "explain": "당신은 어느공간에서 확 튀는 이미지와 차가운 도시이미지를 가지고 있네요❄️", "img": "winter.png"},
+"ENTJ": {"animal": "<strong>겨울</strong>", "explain": "당신은 어느공간에서 확 튀는 이미지와 차가운 도시이미지를 가지고 있네요❄️", "img": "winter.png"}
+}
+        function start() {
+            $(".start").hide();
+            $(".question").show();
+            next();
+        }
+        $("#A").click(function(){
+            var type = $("#type").val();
+            var preValue = $("#"+type).val();
+            $("#"+type).val(parseInt(preValue)+1);
+            next();
+        });
+        $("#B").click(function(){
+            next();
+        });
+        function next() {
+            if (num == 13) {
+                $(".question").hide();
+                $(".result").show();
+                var mbti = "";
+                ($("#EI").val() < 2) ? mbti+="I" : mbti+="E";
+                ($("#SN").val() < 2) ? mbti+="N" : mbti+="S";
+                ($("#TF").val() < 2) ? mbti+="F" : mbti+="T";
+                ($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
+                $("#img").attr("src","img/"+result[mbti]["img"]);
+                $("#animal").html(result[mbti]["animal"]);
+                $("#explain").html(result[mbti]["explain"]);
+            } else {
+                $(".progress-bar").attr('style','width: calc(100/12*'+num+'%)');
+                $("#title").html(q[num]["title"]);
+                $("#type").val(q[num]["type"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+                num++;
+            }
+        }
+    </script>
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60cb2136c70335dd"></script>
+    <!--
+        Copyright (c) 2021 by EventEffect (https://https://eventeffect.netlify.app)
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        The codelion advertising banner image (img/adbanner.png) shall be included in all copies or substantial portions of the Software at the main HTML page.
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    -->
+</body>
+</html>

@@ -1,3 +1,0 @@
-# portfolio
-
-Ellie's portfolio
