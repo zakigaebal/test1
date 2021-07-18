@@ -1,0 +1,161 @@
+/* 전체 */
+body {
+  background-color: #cee741;
+  color: #ffffff;
+  font-family: "Noto Sans KR", sans-serif;
+}
+article {
+  display: flex;
+  flex-direction: column;
+}
+.copyright-text {
+  font-family: "Noto Sans KR";
+  font-size: 12px;
+  color: #7c7c7c;
+}
+
+/* 시작화면 */
+.question {
+  display: none;
+}
+.main-title {
+  font-size: 14px;
+  color: #7c7c7c;
+}
+.sub-title {
+  font-size: 24px;
+  font-weight: 100;
+  color: #000000;
+}
+.updown-slash {
+  width: 166px;
+  margin: 0 auto;
+}
+.start-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-start {
+  font-size: 16px;
+  color: #12cdd4;
+  background-color: #cee741;
+  border: #cee741;
+}
+.btn-start,
+.btn-start:visited,
+.btn-start:hover,
+.btn-start:active {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #000000;
+  border: #cee741;
+}
+.btn-start:active,
+.btn-start:focus {
+  background-color: #12cdd4 !important;
+  border: #cee741 !important;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* 문제 화면 */
+.btn-answer,
+.btn-answer:visited,
+.btn-answer:hover,
+.btn-answer:active,
+.btn-answer:focus {
+  background-color: #ffffff;
+  border: #cee741;
+  width: 288px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: #1c1c1c;
+}
+.btn-answer:hover {
+  background-color: #12cdd4 !important;
+  border: #cee741 !important;
+  width: 288px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: #ffffff;
+}
+.progress-bar {
+  background-color: #12cdd4;
+}
+.progress {
+  background-color: #525764;
+}
+.eventeffect_logo {
+  width: 96px;
+  margin: 0 auto;
+}
+.slash-element {
+  width: 24px;
+  margin: 0 auto;
+}
+.question-content {
+  font-size: 14px;
+  color: #000000;
+}
+.rectangle {
+  width: 1px;
+  height: 1px;
+  background-color: #383a43;
+  margin: 0 auto;
+}
+.mid-rectangle {
+  width: 288px;
+  height: 8px;
+  background-color: #383a43;
+  margin: 10 auto;
+}
+
+/* 결과 화면 */
+.result-message {
+  color: #004e82;
+  margin: 0 auto;
+  font-size: 24px;
+  font-weight: 100;
+}
+.result-animal {
+  font-size: 18px;
+  font-weight: 100;
+  color: #000000;
+}
+.result-explain {
+  font-size: 13px;
+  font-weight: normal;
+  color: #000000;
+}
+.share-message {
+  margin: 0 auto;
+  color: #1c1c1c;
+  font-size: 24px;
+  font-weight: 100;
+}
+.result {
+  display: none;
+}
+#img {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+.share {
+  margin: 0 auto;
+}
+.kakao_ad {
+  width: 320px;
+  margin: 0 auto;
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
+}
+.banner-img {
+  width: 300px;
+  height: 405.17px;
+}
